@@ -23,9 +23,18 @@ const puppeteer = require('puppeteer');
   const amountOfAdult = 1
 
   const URL = 'https://www.phuketplan.com/tour/detail/59c4d8540dabb59ed371d2c4'
+  const firstName = 'Nontachai'
+  const lastName = 'Tantiponsawas'
+  const email = 'sutininter@gmail.com'
+  const phone = '0969252497'
+  const cardNumber = '4000000000000000'
+  const expireDate = '12/20'
+  const cvv = '012'
 
   const browser = await puppeteer.launch({headless: false});
   const page = await browser.newPage();
+  const keyboard = page.keyboard;
+  //console.log(keyboard)
   await page.setViewport(VIEWPORT)
   await page.goto(URL);
   await page.waitForNavigation(DELAY_OPTIONS)
@@ -37,8 +46,23 @@ const puppeteer = require('puppeteer');
   await page.click('.sc-jDwBTQ', CLICK_OPTIONS);
   await page.waitForNavigation(DELAY_OPTIONS);
   await page.click('input[name="firstname"]', CLICK_OPTIONS);
-  await page.keyboard.sendCharacter('N', {delay: 100});
+  firstName.split('').map(async (ch) => { await keyboard.sendCharacter(ch, {delay: 100}) });
+  //await keyboard.sendCharacter('N', {delay: 100});
   await page.click('input[name="lastname"]', CLICK_OPTIONS);
+  lastName.split('').map(async (ch) => { await keyboard.sendCharacter(ch, {delay: 100}) });
+  await page.click('input[name="email"]', CLICK_OPTIONS);
+  email.split('').map(async (ch) => { await keyboard.sendCharacter(ch, {delay: 100}) });
+  await page.click('input[name="phone"]', CLICK_OPTIONS);
+  phone.split('').map(async (ch) => { await keyboard.sendCharacter(ch, {delay: 100}) });
+  await page.click('.sc-jDwBTQ', CLICK_OPTIONS);
+  await page.waitForNavigation(DELAY_OPTIONS);
+  await page.click('input[name="cardNumber"]', CLICK_OPTIONS);
+  cardNumber.split('').map(async (ch) => { await keyboard.sendCharacter(ch, {delay: 100}) });
+  await page.click('input[name="expireDate"]', CLICK_OPTIONS);
+  expireDate.split('').map(async (ch) => { await keyboard.sendCharacter(ch, {delay: 100}) });
+  await page.click('input[name="cvvNumber"]', CLICK_OPTIONS);
+  cvv.split('').map(async (ch) => { await keyboard.sendCharacter(ch, {delay: 100}) });
+  await page.click('.firstBottomBarBtn___33xag');
   //await page.screenshot({path: 'example.png'});
   //await browser.close();
 })();

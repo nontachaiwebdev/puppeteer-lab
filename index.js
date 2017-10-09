@@ -22,7 +22,7 @@ const puppeteer = require('puppeteer');
 
   const amountOfAdult = 1
 
-  const URL = 'https://www.phuketplan.com/tour/detail/59c4d8540dabb59ed371d2c4'
+  const URL = 'https://www.phuketplan.com/tour/detail/59c4d8540dabb59ed371d2f6'
   const firstName = 'Nontachai'
   const lastName = 'Tantiponsawas'
   const email = 'sutininter@gmail.com'
